@@ -1,0 +1,141 @@
+/* :root {
+  --shadow: #4C4040;
+  --skin: #635C56;
+  --white: #FFFFFF;
+  --black: #000000;
+  --yellow-white: #FCFCFC;
+
+  --color-black: #161616;
+  --color-white: #fff;
+} */
+
+:root {
+  --shadow: #000000;
+  --skin: #FFFFFF;
+  --white: #FFFFFF;
+  --black: #000000;
+  --yellow-white: #FCFCFC;
+  --mindera-yellow: #f9c705;
+  --mindera-light-yellow: #fce999;
+
+  --color-black: #161616;
+  --color-white: #fff;
+}
+
+@font-face {
+  font-family: 'Press Start 2p';
+  src: url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+}
+
+body {
+  background-color: black;
+  text-align: center;
+}
+
+button {
+  font-family: 'Press Start 2p';
+  background-color: #f9c705;
+  color: black;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 20px 50px;
+	margin:5px;
+  /* text-shadow: -1px -1px black, 1px 1px white; */
+  box-shadow: 0 .2em #7f6d27; 
+}
+
+button:active {
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.shadow {
+  fill: var(--skin);
+  stroke: var(--black);
+}
+
+.skin {
+  fill: var(--skin);
+  stroke: var(--black);
+}
+
+.eye {
+  fill: var(--white);
+  stroke: var(--black);
+}
+
+/* walk */
+
+.cat-container{
+  position: relative;
+  display: inline-block;
+  height: 301px; 
+  width: 507.5px;
+  z-index: 10;
+  overflow: hidden;
+  margin: 5px 0;
+}
+
+.selected {
+  background-image: linear-gradient(var(--mindera-light-yellow), var(--mindera-yellow));
+}
+
+.moving-cat{
+  position: absolute;
+  left: 0;
+}
+
+.walk {
+  animation: move-animation 1.2s steps(16, end) infinite;
+}
+
+.rotate {
+  animation: rotate 1s;
+}
+
+.slide {
+  animation: slide 2s;
+  animation-fill-mode: forwards;
+}
+
+.hide {
+  left: 507px;
+}
+
+.flip {
+  transform: scaleX(-1);
+}
+
+@keyframes move-animation { 
+  from { left: 0; }
+  to { left: -8120px; }
+}
+
+@keyframes rotate { 
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slide {
+  from {
+    left: 0;
+  }
+  to {
+    left: 507px;
+  }
+}
+
+@keyframes flip {
+  to {
+    transform: scaleX(-1);
+  }
+}
+
