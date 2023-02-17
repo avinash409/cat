@@ -1,39 +1,51 @@
-const actions = [
-  {name: 'walk', displayName: 'Walk'},
-  {name: 'meow', displayName: 'Meow'},
-  {name: 'purr', displayName: 'Purr'},
-  {name: 'talk', displayName: 'Talk'},
-  {name: 'stop', displayName: 'Stop'},
-  {name: 'hide', displayName: 'Hide & Seek'},
-  {name: 'flip', displayName: 'Flip'},
-  {name: 'slide', displayName: 'Slide'},
-  {name: 'fart', displayName: 'Fart'}
-];
+function start() {
+  const catForm = document.getElementById('cat-form');
+  const baseCat = document.getElementById('base-cat');
 
-const actionNode = document.querySelector('button.action');
-actions.forEach(action => {
-  const btnNode = actionNode.cloneNode(true);
+  baseCat.setAttribute('class', 'cat hidden')
+  
+  catForm.setAttribute('class', '');
+  catForm.onsubmit = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
 
-  btnNode.setAttribute('class', 'action');
-  btnNode.setAttribute('id', action.name);
-  btnNode.innerHTML = action.displayName;
+    const formData = new FormData(catForm);
+    const type = formData.get('type');
+    const name = formData.get('name');
+    const color = formData.get('color');
 
-  document.querySelector('.cat-actions').appendChild(btnNode);
-});
-
-document.querySelectorAll('button.action').forEach((btn) => {
-  const action = btn.getAttribute('id');
-  btn.onclick = function() {
-    actionHandler(action);
+    switch(type) {
+      case 'cat': 
+        new Cat({ name, color });
+        break;
+      case 'talkingCat': 
+        new TalkingCat({
+          name,
+          color,
+          actions: [
+            {id: 'talk', label: 'Talk'}
+          ]
+        });
+        break;
+      case 'walkingCat':
+        new WalkingCat({
+          name,
+          color,
+          actions: [
+            {id: 'walk', label: 'Walk'}
+          ]
+        });
+        break;
+      case 'fartingCat': 
+        new FartingCat({
+          name,
+          color,
+          actions: [
+            {id: 'fart', label: 'Fart'}
+          ]
+        });
+        break;
+      default: break;
+    }
   }
-});
-
-function actionHandler(action) {
-  selectedCats.forEach(cat => {
-    cat.cat[action]();
-  });
-}
-
-function createCat() {
-  new Cat({ name: 'Tom', color: '#fce999'});
 }

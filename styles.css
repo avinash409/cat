@@ -1,21 +1,11 @@
-/* :root {
-  --shadow: #4C4040;
-  --skin: #635C56;
-  --white: #FFFFFF;
-  --black: #000000;
-  --yellow-white: #FCFCFC;
-
-  --color-black: #161616;
-  --color-white: #fff;
-} */
-
 :root {
   --shadow: #000000;
   --skin: #FFFFFF;
   --white: #FFFFFF;
   --black: #000000;
   --yellow-white: #FCFCFC;
-  --mindera-yellow: #f9c705;
+  /* --mindera-yellow: #f9c705; */
+  --mindera-yellow: #FFC700;
   --mindera-light-yellow: #fce999;
 
   --color-black: #161616;
@@ -24,26 +14,27 @@
 
 @font-face {
   font-family: 'Press Start 2p';
-  src: url('https://fonts.googleapis.com/css?family=Press+Start+2P');
-}
+  src: url('./fonts/PressStart2P-Regular.ttf');
+} 
 
 body {
   background-color: black;
+  color: whitesmoke;
   text-align: center;
+  margin: 0;
 }
 
-button {
+button, select, input, form {
   font-family: 'Press Start 2p';
   background-color: #f9c705;
   color: black;
   cursor: pointer;
   text-align: center;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 12px;
   border-radius: 10px;
-  padding: 20px 50px;
+  padding: 5px 10px;
 	margin:5px;
-  /* text-shadow: -1px -1px black, 1px 1px white; */
   box-shadow: 0 .2em #7f6d27; 
 }
 
@@ -53,13 +44,17 @@ button:active {
 	top: .2em;
 }
 
+form {
+  background-color: #fdfcef;
+}
+
 .hidden {
   display: none !important;
 }
 
-.shadow {
-  fill: var(--skin);
-  stroke: var(--black);
+#base-cat {
+  animation: zoomIn 5s;
+  margin: 10px;
 }
 
 .skin {
@@ -77,33 +72,47 @@ button:active {
 .cat-container{
   position: relative;
   display: inline-block;
-  height: 301px; 
-  width: 507.5px;
+  height: 360px; 
+  /* width: 507.5px; */
+  width: 677.5px;
   z-index: 10;
   overflow: hidden;
-  margin: 5px 0;
+  margin: 25px 1px;
+  background-color: #fdfcef;
 }
 
 .selected {
-  background-image: linear-gradient(var(--mindera-light-yellow), var(--mindera-yellow));
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.cat-name {
+  font-size: 24px;
+  font-weight: bold;
+  background-color: black;
+  color: white;
+}
+
+.cat-container .cat-actions{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  height: 100%;
+  background: #f9c705;
 }
 
 .moving-cat{
   position: absolute;
   left: 0;
+  bottom: 0;
 }
 
 .walk {
   animation: move-animation 1.2s steps(16, end) infinite;
 }
 
-.rotate {
-  animation: rotate 1s;
-}
-
 .slide {
   animation: slide 2s;
-  animation-fill-mode: forwards;
 }
 
 .hide {
@@ -114,14 +123,18 @@ button:active {
   transform: scaleX(-1);
 }
 
+@keyframes zoomIn {
+  from {
+    transform: scale3d(0,0,-1);
+  } to {
+    transform: scale3d(1,1,1);
+  }
+}
+
+
 @keyframes move-animation { 
   from { left: 0; }
   to { left: -8120px; }
-}
-
-@keyframes rotate { 
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 @keyframes slide {
