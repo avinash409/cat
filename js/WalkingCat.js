@@ -2,7 +2,7 @@ class WalkingCat extends Cat {
   constructor(props){
     props.actions = [
       {id: 'walk', label: 'Walk'},
-      {id: 'flip', label: 'Flip'}
+      // Task 10: Create a reverse walking cat
     ];
 
     super(props);

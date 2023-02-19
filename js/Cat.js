@@ -9,20 +9,16 @@ const selectedCats = [];
 class Cat {
   constructor(props) {
     // Task 1: Name the cat
-    this.name = props.name;
 
     // Task 2: Color the cat
-    this.color = props.color;
 
     this.catContainerInstance = catContainer.cloneNode(true);
 
     // Task 3: Make the cat meow & purr
     this.actions = [
-      {id: 'meow', label: 'Meow'},
-      {id: 'purr', label: 'Purr'},
+      
       
       // Task 5: Reset me
-      // {id: 'stop', label: 'Reset me'},
 
       ...(props.actions || [])
     ];
