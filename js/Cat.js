@@ -8,34 +8,41 @@ const selectedCats = [];
 
 class Cat {
   constructor(props) {
+    // Task 1: Name the cat
     this.name = props.name;
+
+    // Task 2: Color the cat
     this.color = props.color;
+
     this.catContainerInstance = catContainer.cloneNode(true);
+
+    // Task 3: Make the cat meow & purr
     this.actions = [
       {id: 'meow', label: 'Meow'},
       {id: 'purr', label: 'Purr'},
-      {id: 'stop', label: 'Reset'},
-      {id: 'hide', label: 'Hide & Seek'},
-      {id: 'flip', label: 'Flip'},
-      {id: 'slide', label: 'Slide'},
+      
+      // Task 5: Reset me
+      // {id: 'stop', label: 'Reset me'},
+
       ...(props.actions || [])
     ];
+    this.timestamp = new Date().getTime();
 
     this.create();
-    this.changeColor();
+    this.setColor();
     
     if(!props.actions) {
       this.createActions();
     }
   }
 
-  changeColor = (color) => {
+  setColor = (color) => {
     const style = document.getElementsByTagName('style')[0];
-    style.innerHTML+= `#${this.name} .skin { fill: ${color || this.color} }`;
+    style.innerHTML+= `#id-${this.timestamp} .skin { fill: ${color || this.color} }`;
   }
 
   create = () => {
-    this.catContainerInstance.setAttribute('id', this.name);
+    this.catContainerInstance.setAttribute('id', 'id-'+this.timestamp);
     const childNode = document.body.appendChild(this.catContainerInstance);
     
     this.toggleClass('hidden', childNode);
@@ -118,8 +125,24 @@ class Cat {
     this.resetClass();
   }
 
-  hide = () => {
-    this.toggleClass('hide');
+  fart = () => {
+    const fartAudio = this.catContainerInstance.querySelector('#fart');
+    fartAudio.play();
+  }
+
+  talk = () => {
+    const voice = voices.find(voice => voice.name === "Daniel")
+
+    var msg = new SpeechSynthesisUtterance();
+    msg.text = `Hello World, my name is ${this.name}. I am a ${this.constructor.name}`;
+    // msg.voice = voice;
+    msg.lang = this.language;
+    msg.rate = 0.9;
+    window.speechSynthesis.speak(msg);
+  }
+
+  walk = () => {
+    this.addClass('walk');
   }
 
   flip = () => {
@@ -129,48 +152,8 @@ class Cat {
   slide = () => {
     this.addClass('slide');
   }
-}
 
-class TalkingCat extends Cat {
-  constructor(props){
-    super(props);
-    this.language = props.language;
-    this.createActions();
-  }
-
-  talk = () => {
-    const voice = voices.find(voice => voice.name === "Daniel")
-
-    var msg = new SpeechSynthesisUtterance();
-    msg.text = `Hello World, my name is ${this.name}`;
-    // msg.voice = voice;
-    msg.lang = this.language;
-    msg.rate = 0.9;
-    window.speechSynthesis.speak(msg);
+  hide = () => {
+    this.toggleClass('hide');
   }
 }
-
-class WalkingCat extends Cat {
-  constructor(props){
-    super(props);
-    this.createActions();
-  }
-
-  walk = () => {
-    this.addClass('walk');
-  }
-
-}
-
-class FartingCat extends Cat {
-  constructor(props){
-    super(props);
-    this.createActions();
-  }
-
-  fart = () => {
-    const fartAudio = this.catContainerInstance.querySelector('#fart');
-    fartAudio.play();
-  }
-}
-  
