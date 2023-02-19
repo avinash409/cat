@@ -45,7 +45,7 @@ class Cat {
     this.catInstance = childNode.querySelector('.moving-cat');
     
     const catName = childNode.querySelector('.cat-name');
-    catName.innerHTML = this.name;
+    catName.innerHTML = this.name || "";
 
     this.catInstance.setAttribute('id', `cat-${this.name}`);
 
