@@ -27,34 +27,34 @@ function start(e) {
         break;
 
       // Task 4: Create a sliding cat
-      // case 'slidingCat':
-      //   new SlidingCat(props);
-      //   break;
+      case 'slidingCat':
+        new SlidingCat(props);
+        break;
 
       // Task 6: Create a playing cat
-      // case 'playingCat':
-      //   new PlayingCat(props);
-      //   break;
+      case 'playingCat':
+        new PlayingCat(props);
+        break;
 
       // Task 7: Create a talking cat
-      // case 'talkingCat': 
-      //   new TalkingCat(props);
-      //   break;
+      case 'talkingCat': 
+        new TalkingCat(props);
+        break;
 
       // Task 8: Create a walking cat
-      // case 'walkingCat':
-      //   new WalkingCat(props);
-      //   break;
+      case 'walkingCat':
+        new WalkingCat(props);
+        break;
 
       // Task 9: Create a Farting cat
-      // case 'fartingCat': 
-      //   new FartingCat(props);
-      //   break;
+      case 'fartingCat': 
+        new FartingCat(props);
+        break;
 
       // Task 10, Challenge: Create a Super cat
-      // case 'superCat':
-      //   new SuperCat(props);
-      //   break;
+      case 'superCat':
+        new SuperCat(props);
+        break;
 
       default: break;
     }
