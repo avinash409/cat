@@ -31,7 +31,7 @@ class Cat {
     this.create();
     this.setColor();
     
-    if(!props.actions) {
+    if(!props.actions && this.actions?.length) {
       this.createActions();
     }
   }
