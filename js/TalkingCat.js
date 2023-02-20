@@ -1,22 +1,27 @@
 class TalkingCat extends Cat {
   constructor(props){
     props.actions = [
-      {id: 'talk', label: 'Talk'}
+      {id: 'talk', label: 'Talk'},
     ];
 
     super(props);
-    this.language = props.language;
-    this.createActions();
+
+    // Task 8.2: Make the cat talk fast
+    this.addAction({
+      label: ''
+    }, this.talkFast);
+
+    // Task 8.2: Make the cat talk slow
+    this.addAction({
+      label: ''
+    }, this.talkSlow);
   }
 
-  talk = () => {
-    const voice = voices.find(voice => voice.name === "Daniel")
+  talkFast = () => {
+    this.speedTalk(1.5);
+  }
 
-    var msg = new SpeechSynthesisUtterance();
-    msg.text = `Hello World, my name is ${this.name}. I am a ${this.constructor.name}`;
-    // msg.voice = voice;
-    msg.lang = this.language;
-    msg.rate = 0.9;
-    window.speechSynthesis.speak(msg);
+  talkSlow = () => {
+    this.speedTalk(0.5);
   }
 }

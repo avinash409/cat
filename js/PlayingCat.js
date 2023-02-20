@@ -5,10 +5,5 @@ class PlayingCat extends Cat {
     ];
 
     super(props);
-    this.createActions();
-  }
-  
-  hide = () => {
-    this.toggleClass('hide');
   }
 }

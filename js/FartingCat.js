@@ -5,11 +5,5 @@ class FartingCat extends Cat {
     ];
 
     super(props);
-    this.createActions();
-  }
-
-  fart = () => {
-    const fartAudio = this.catContainerInstance.querySelector('#fart');
-    fartAudio.play();
   }
 }

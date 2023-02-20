@@ -12,22 +12,18 @@ class Cat {
 
     // Task 2: Color the cat
 
-    this.catContainerInstance = catContainer.cloneNode(true);
-
-    // Task 3: Make the cat meow & purr
+    // Task 3: Make the cat meow
+    // Task 4: Make the cat purr
     this.actions = [
-      
-      
-      // Task 5: Reset me
-
       ...(props.actions || [])
     ];
-    this.timestamp = new Date().getTime();
 
+    this.language = props.language;
+    
     this.create();
     this.setColor();
     
-    if(!props.actions && this.actions?.length) {
+    if(this.actions.length) {
       this.createActions();
     }
   }
@@ -38,6 +34,9 @@ class Cat {
   }
 
   create = () => {
+    this.timestamp = new Date().getTime();
+    this.catContainerInstance = catContainer.cloneNode(true);
+
     this.catContainerInstance.setAttribute('id', 'id-'+this.timestamp);
     const childNode = document.body.appendChild(this.catContainerInstance);
     
@@ -107,6 +106,22 @@ class Cat {
     });
   }
 
+  addAction = (action, actionHandler) => {
+    if(action.label) {
+      const actionNode = document.querySelector('button.action');
+      const btnNode = actionNode.cloneNode(true);
+      
+      btnNode.setAttribute('class', 'action');
+      // btnNode.setAttribute('id', action.id);
+      btnNode.innerHTML = action.label;
+    
+      this.catContainerInstance.querySelector('.cat-actions').appendChild(btnNode);
+      
+      // const btn = this.catContainerInstance.querySelector(`button.action#${action.id}`);
+      btnNode.onclick = actionHandler;
+    }
+  }
+
   purr = () => {
     const purrAudio = this.catContainerInstance.querySelector('#purr');
     purrAudio.play();
@@ -126,14 +141,29 @@ class Cat {
     fartAudio.play();
   }
 
-  talk = () => {
-    const voice = voices.find(voice => voice.name === "Daniel")
-
+  talk = (e, rate) => {
     var msg = new SpeechSynthesisUtterance();
-    msg.text = `Hello World, my name is ${this.name}. I am a ${this.constructor.name}`;
-    // msg.voice = voice;
+
+    if(this.name) {
+      msg.text = `Hello World, my name is ${this.name}. I am a ${this.constructor.name}`;
+    } else {
+      msg.text = `Hello World, I am a ${this.constructor.name}`;
+    }
     msg.lang = this.language;
-    msg.rate = 0.9;
+    msg.rate = rate || 1;
+    window.speechSynthesis.speak(msg);
+  }
+
+  speedTalk = (rate) => {
+    var msg = new SpeechSynthesisUtterance();
+
+    if(this.name) {
+      msg.text = `Hello World, my name is ${this.name}. I am a ${this.constructor.name}`;
+    } else {
+      msg.text = `Hello World, I am a ${this.constructor.name}`;
+    }
+    msg.lang = this.language;
+    msg.rate = rate || 1;
     window.speechSynthesis.speak(msg);
   }
 
