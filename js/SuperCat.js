@@ -1,13 +1,7 @@
 class SuperCat extends Cat {
   constructor(props){
     props.actions = [
-      {id: 'hide', label: 'Hide & Seek'},
-      {id: 'slide', label: 'Slide'},
-      {id: 'talk', label: 'Talk'},
-      {id: 'fart', label: 'Fart'},
-      {id: 'walk', label: 'Walk'},
-      {id: 'flip', label: 'Flip'},
-      {id: 'stop', label: 'Stop/Reset'},
+      
     ];
 
     super(props);
@@ -17,7 +11,7 @@ class SuperCat extends Cat {
     }, this.talkFast);
 
     this.addAction({
-      label: '' // add a label
+      label: '' // add Change color label
     }, this.changeColor);
   }
 

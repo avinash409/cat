@@ -1,4 +1,4 @@
-## Tasks ##
+# Tasks
 
 * ## Task 1: Name the cat
     this.name = props.name;
@@ -40,6 +40,16 @@
     * ## Task 10.1: Create a reverse walking cat
         {id: 'flip', label: 'Flip'},
 
-* ## Task 11, Challenge: Create a Super cat
+* ## Task 11: Create a Super cat
     new SuperCat(props);
+
+    {id: 'hide', label: 'Hide & Seek'},
+    {id: 'slide', label: 'Slide'},
+    {id: 'talk', label: 'Talk'},
+    {id: 'fart', label: 'Fart'},
+    {id: 'walk', label: 'Walk'},
+    {id: 'flip', label: 'Flip'},
+    {id: 'stop', label: 'Stop/Reset'},
+
+
     label: 'Change color'
