@@ -16,33 +16,37 @@ function start(e) {
     const name = formData.get('name');
     const color = formData.get('color');
 
-    const props = {
-      name,
-      color
-    };
+    const props = { name, color };
 
     switch(type) {
-      case 'cat': 
+      case 'cat':
         new Cat(props);
         break;
 
-      // Task 4: Create a sliding cat
+      case 'playingCat':
+        // Task 5: Create a playing cat
+        break;
 
+      case 'slidingCat':
+        // Task 6: Create a sliding cat
+        break;
 
-      // Task 6: Create a playing cat
-
-
-      // Task 7: Create a talking cat
-
+      case 'talkingCat':
+        // Task 8: Create a talking cat
+        // Task 8.1: Change accent
+        break;
       
-      // Task 8: Create a Farting cat
+      case 'fartingCat':
+        // Task 9: Create a Farting cat
+        break;
       
+      case 'walkingCat':
+        // Task 10: Create a walking cat
+        break;
       
-      // Task 9: Create a walking cat
-      
-
-      // Task 11, Challenge: Create a Super cat
-      
+      case 'superCat':
+        // Task 11, Challenge: Create a Super cat
+        break;
 
       default: break;
     }
