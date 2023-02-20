@@ -1,7 +1,7 @@
-class FartingCat extends Cat {
+class FunnyCat extends Cat {
   constructor(props){
     props.actions = [
-      {id: 'fart', label: 'Fart'}
+      {id: 'fart', label: 'Play'}
     ];
 
     super(props);

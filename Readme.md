@@ -31,8 +31,8 @@
         label: 'Talk fast'
         label: 'Talk slow'
 
-* ## Task 9: Create a Farting cat
-    new FartingCat(props);
+* ## Task 9: Create a Funny cat
+    new FunnyCat(props);
 
 * ## Task 10: Create a Walking cat
     new WalkingCat(props);

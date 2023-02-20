@@ -36,8 +36,8 @@ function start(e) {
         // Task 8.1: Change accent
         break;
       
-      case 'fartingCat':
-        // Task 9: Create a Farting cat
+      case 'funnyCat':
+        // Task 9: Create a Funny cat
         break;
       
       case 'walkingCat':
