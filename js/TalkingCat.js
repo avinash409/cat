@@ -11,7 +11,7 @@ class TalkingCat extends Cat {
       label: ''
     }, this.talkFast);
 
-    // Task 8.2: Make the cat talk slow
+    // Task 8.3: Make the cat talk slow
     this.addAction({
       label: ''
     }, this.talkSlow);

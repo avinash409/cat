@@ -24,11 +24,9 @@
 * ## Task 8: Create a Talking cat
     new TalkingCat(props);
 
-    * ## Task 8.1: Change accent
-        new TalkingCat({ name, color, language: 'en-In' });
-
-    * ## Task 8.2: Make the cat talk fast and slow
+    * ## Task 8.2: Make the cat talk fast
         label: 'Talk fast'
+    * ## Task 8.3: Make the cat talk slow
         label: 'Talk slow'
 
 * ## Task 9: Create a Funny cat
@@ -37,19 +35,6 @@
 * ## Task 10: Create a Walking cat
     new WalkingCat(props);
 
-    * ## Task 10.1: Create a reverse walking cat
-        {id: 'flip', label: 'Flip'},
-
 * ## Task 11: Create a Super cat
     new SuperCat(props);
-
-    {id: 'hide', label: 'Hide & Seek'},
-    {id: 'slide', label: 'Slide'},
-    {id: 'talk', label: 'Talk'},
-    {id: 'fart', label: 'Fart'},
-    {id: 'walk', label: 'Walk'},
-    {id: 'flip', label: 'Flip'},
-    {id: 'stop', label: 'Stop/Reset'},
-
-
-    label: 'Change color'
+s
