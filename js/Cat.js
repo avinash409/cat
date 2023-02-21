@@ -9,12 +9,16 @@ const selectedCats = [];
 class Cat {
   constructor(props) {
     // Task 1: Name the cat
+    this.name = props.name;
 
     // Task 2: Color the cat
+    this.color = props.color;
 
-    // Task 3: Make the cat meow
-    // Task 4: Make the cat purr
     this.actions = [
+      // Task 3: Make the cat meow
+      {id: 'meow', label: 'Meow'},
+      // Task 4: Make the cat purr
+      {id: 'purr', label: 'Purr'},
       ...(props.actions || [])
     ];
 
@@ -91,13 +95,16 @@ class Cat {
   createActions = () => {
     const actionNode = document.querySelector('button.action');
     this.actions.forEach(action => {
-      const btnNode = actionNode.cloneNode(true);
-    
-      btnNode.setAttribute('class', 'action');
-      btnNode.setAttribute('id', action.id);
-      btnNode.innerHTML = action.label;
-    
-      this.catContainerInstance.querySelector('.cat-actions').appendChild(btnNode);
+
+      if(action.id && action.label) {
+        const btnNode = actionNode.cloneNode(true);
+      
+        btnNode.setAttribute('class', 'action');
+        btnNode.setAttribute('id', action.id);
+        btnNode.innerHTML = action.label;
+      
+        this.catContainerInstance.querySelector('.cat-actions').appendChild(btnNode);
+      }
     });
     
     this.catContainerInstance.querySelectorAll('button.action').forEach((btn) => {
