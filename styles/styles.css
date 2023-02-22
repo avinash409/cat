@@ -45,8 +45,20 @@ form {
 }
 
 #base-cat {
-  animation: zoomIn 2s;
+  animation: zoomIn 2s infinite;
   margin: 10px;
+}
+
+.flips {
+  animation: rotate 2s infinite
+}
+
+.flips-fast {
+  animation: rotate 0.75s infinite
+}
+
+.revolve {
+  animation: revolve 2s infinite
 }
 
 .skin {
@@ -64,7 +76,7 @@ form {
 .cat-container{
   position: relative;
   display: inline-block;
-  height: 430px; 
+  height: 400px; 
   /* width: 507.5px; */
   width: 677.5px;
   z-index: 10;
@@ -93,6 +105,7 @@ form {
   padding: 5px;
   min-width: 135px;
   background: #f9c705;
+  overflow-y: scroll;
 }
 
 .moving-cat{
@@ -145,3 +158,20 @@ form {
   }
 }
 
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes revolve {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}

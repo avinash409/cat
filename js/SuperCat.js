@@ -13,8 +13,21 @@ class SuperCat extends Cat {
     super(props);
 
     this.addAction({
-      label: 'Talk fast'
+      label: 'Talk slow'
     }, this.talkFast);
+
+    this.addAction({
+      label: 'Flip me'
+    }, this.flipMe);
+
+    this.addAction({
+      label: 'Fast Flip'
+    }, this.flipMeFast);
+
+
+    this.addAction({
+      label: 'revolve'
+    }, this.revolve);
 
     this.addAction({
       label: 'change color' // add Change color label
@@ -22,12 +35,24 @@ class SuperCat extends Cat {
   }
 
   talkFast = () => {
-    this.speedTalk(1.5);
+    this.speedTalk(0.5);
   }
 
   changeColor = () => {
     const randomColor = Math.floor(Math.random()*16777215).toString(16);
     this.setColor(`#${randomColor}`)
+  }
+
+  flipMe = () => {
+    this.toggleClass('flips')
+  }
+
+  flipMeFast = () => {
+    this.toggleClass('flips-fast')
+  }
+
+  revolve = () => {
+    this.toggleClass('revolve');
   }
 
 }
